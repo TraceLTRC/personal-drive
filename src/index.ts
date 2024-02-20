@@ -64,7 +64,6 @@ app.use("*", async (c, next) => {
   // Convert the hashed token into hex format.
   // https://stackoverflow.com/questions/63397714/not-able-to-create-md5-hash-on-cloudflare-worker-script
   const token = Array.from(new Uint8Array(hashedToken)).map(b => b.toString(16).padStart(2, '0')).join('');
-  console.log(token);
 
   const bearer = bearerAuth({ token });
   return bearer(c, next);
