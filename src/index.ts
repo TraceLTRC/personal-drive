@@ -15,8 +15,8 @@ function isObjectBody(obj: R2Object | R2ObjectBody): obj is R2ObjectBody {
 
 const app = new Hono<{ Bindings: Bindings }>();
 
-app.get('/', (c) => {
-  return c.text("Welcome to white space.");
+app.get('/', () => {
+  return Response.redirect("https://tracel.xyz", 301)
 })
 
 app.get('/:name', async (c) => {
